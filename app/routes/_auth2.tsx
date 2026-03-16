@@ -4,7 +4,7 @@ import { redirect, type MiddlewareFunction } from "react-router";
 const authMiddleware: MiddlewareFunction = async ({ request, context }) => {
   const isValid = request.headers.get("Cookie")?.includes("authToken=valid");
   if (!isValid) {
-    throw redirect("/login");
+    return redirect("/login");
   }
 };
 
